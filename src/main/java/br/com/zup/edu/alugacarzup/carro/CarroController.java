@@ -15,16 +15,11 @@ import javax.validation.Valid;
 public class CarroController {
 
     @Autowired
-    private CarroRepository carroRepository;
+    private CarroService carroService;
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?> cadastraCarro(@RequestBody @Valid CarroRequest carroRequest){
-
-        Carro carro = carroRequest.toModel();
-        carroRepository.save(carro);
-
-        return ResponseEntity.ok().build();
-
+    public ResponseEntity<?> salvaCarro(@RequestBody @Valid CarroRequest carroRequest){
+        return carroService.cadastraCarro(carroRequest);
     }
 }
