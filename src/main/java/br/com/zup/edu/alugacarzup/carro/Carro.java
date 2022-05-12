@@ -1,6 +1,10 @@
 package br.com.zup.edu.alugacarzup.carro;
 
+
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Carro {
@@ -18,7 +22,8 @@ public class Carro {
     private String marca;
 
     @Column(nullable = false)
-    private boolean disponivel;
+    private boolean disponivel = true;
+
 
     public Carro(String modelo, Integer ano, String marca) {
         this.modelo = modelo;
@@ -36,5 +41,13 @@ public class Carro {
 
     public Long getId() {
         return id;
+    }
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
     }
 }
