@@ -23,6 +23,8 @@ public class Carro {
 
     @Column(nullable = false)
     private boolean disponivel = true;
+    
+    private String reservadoPara;
 
     @Version
     private int version;
@@ -50,7 +52,12 @@ public class Carro {
         return disponivel;
     }
 
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
+    public String getReservadoPara() {
+        return reservadoPara;
+    }
+
+    public void reservaCarro(String reservadoPara){
+        this.disponivel = false;
+        this.reservadoPara = reservadoPara;
     }
 }

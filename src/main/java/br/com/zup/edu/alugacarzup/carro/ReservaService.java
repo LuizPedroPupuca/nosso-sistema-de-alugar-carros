@@ -20,7 +20,7 @@ public class ReservaService {
         if(possivelCarro.isEmpty()) return ResponseEntity.notFound().build();
         Carro carro = possivelCarro.get();
         if(!carro.isDisponivel()) return ResponseEntity.unprocessableEntity().build();
-        carro.setDisponivel(false);
+        carro.reservaCarro(reservaRequest.getReservadoPara());
         reservaRepository.save(reservaRequest.toModel(carro));
         return ResponseEntity.ok().build();
     }
