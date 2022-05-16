@@ -7,6 +7,4 @@ import javax.persistence.LockModeType;
 import java.util.Optional;
 
 public interface CarroRepository extends JpaRepository<Carro,Long> {
-    @Lock(LockModeType.PESSIMISTIC_WRITE)
-    Optional<Carro> findById(Long id);
 }

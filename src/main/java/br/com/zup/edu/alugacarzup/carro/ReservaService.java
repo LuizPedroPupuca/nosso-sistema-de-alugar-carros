@@ -22,6 +22,6 @@ public class ReservaService {
         if(!carro.isDisponivel()) return ResponseEntity.unprocessableEntity().build();
         carro.setDisponivel(false);
         reservaRepository.save(reservaRequest.toModel(carro));
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 }

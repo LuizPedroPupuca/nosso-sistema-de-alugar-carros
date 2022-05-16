@@ -24,6 +24,9 @@ public class Carro {
     @Column(nullable = false)
     private boolean disponivel = true;
 
+    @Version
+    private int version;
+
 
     public Carro(String modelo, Integer ano, String marca) {
         this.modelo = modelo;
